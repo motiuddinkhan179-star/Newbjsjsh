@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGen Pro - AI Exam Suite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .serif-content {
+            font-family: 'Crimson Pro', serif;
+        }
+        
+        /* Specialized font for RTL languages */
+        .rtl-content {
+            font-family: 'Noto Naskh Arabic', serif !important;
+            direction: rtl;
+            text-align: right;
+            line-height: 2.2;
+        }
+
+        /* Fixed A4 dimensions for PDF capture and Screen Preview */
+        .pdf-capture-container {
+            width: 210mm;
+            background: white;
+            margin: 0 auto;
+            position: relative;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            padding: 20mm;
+            min-height: 297mm;
+        }
+
+        .avoid-break {
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { 
+                background: white !important; 
+                margin: 0 !important; 
+                padding: 0 !important;
+            }
+            .pdf-capture-container {
+                box-shadow: none !important;
+                border: none !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 10mm !important;
+            }
+            #root > div {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        /* Better RTL behavior in PDF rendering */
+        .pdf-exporting .rtl-content {
+            letter-spacing: 0px !important;
+            font-feature-settings: "kern" 1, "liga" 1;
+        }
+
+        /* Hide textareas in output, show static text */
+        .pdf-exporting textarea, .print-mode textarea {
+            display: none !important;
+        }
+        .pdf-exporting .print-only-text, .print-mode .print-only-text {
+            display: block !important;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>

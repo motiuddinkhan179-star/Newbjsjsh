@@ -1,0 +1,7 @@
+{
+  "name": "EduGen Pro - AI Exam Designer",
+  "description": "Professional tool for generating high-fidelity A4 examination papers from PDFs and images using advanced AI.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
