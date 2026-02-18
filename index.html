@@ -25,7 +25,6 @@
             font-family: 'Crimson Pro', serif;
         }
         
-        /* Specialized font for RTL languages */
         .rtl-content {
             font-family: 'Noto Naskh Arabic', serif !important;
             direction: rtl;
@@ -33,7 +32,6 @@
             line-height: 2.2;
         }
 
-        /* Fixed A4 dimensions for PDF capture and Screen Preview */
         .pdf-capture-container {
             width: 210mm;
             background: white;
@@ -64,31 +62,14 @@
                 margin: 0 !important;
                 padding: 10mm !important;
             }
-            #root > div {
-                padding: 0 !important;
-                margin: 0 !important;
-            }
-            * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
         }
 
-        /* Better RTL behavior in PDF rendering */
         .pdf-exporting .rtl-content {
             letter-spacing: 0px !important;
-            font-feature-settings: "kern" 1, "liga" 1;
         }
 
-        /* Hide textareas in output, show static text */
-        .pdf-exporting textarea, .print-mode textarea {
-            display: none !important;
-        }
-        .pdf-exporting .print-only-text, .print-mode .print-only-text {
-            display: block !important;
-        }
+        .pdf-exporting .no-pdf { display: none !important; }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
@@ -107,5 +88,7 @@
 </head>
 <body>
     <div id="root"></div>
+    <!-- Crucial: Vite needs this entry point to crawl the dependency graph -->
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>

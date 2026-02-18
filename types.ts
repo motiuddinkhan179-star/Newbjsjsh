@@ -20,8 +20,10 @@ export interface Question {
   options?: string[];
   correctAnswer?: string;
   explanation?: string;
-  markingRubric?: string; // Teacher feature: how to award partial marks
-  cognitiveLevel?: 'Knowledge' | 'Understanding' | 'Application' | 'Analysis' | 'Synthesis' | 'Evaluation'; // Bloom's Taxonomy
+  markingRubric?: string; 
+  cognitiveLevel?: 'Knowledge' | 'Understanding' | 'Application' | 'Analysis' | 'Synthesis' | 'Evaluation'; 
+  estimatedTime: number; // in minutes
+  topicTag?: string; // e.g. "Chapter 4: Photosynthesis"
   marks: number;
 }
 
@@ -34,8 +36,11 @@ export interface QuestionPaper {
   logoUrl?: string;
   totalMarks: number;
   duration: string;
+  estimatedTotalTime?: number;
+  topicsCovered?: string[];
   instructions: string[];
   watermark?: string;
+  setLabel?: string; // "Set A", "Set B", etc.
   sections: {
     id: string;
     title: string;
