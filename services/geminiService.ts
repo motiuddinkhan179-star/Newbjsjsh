@@ -43,12 +43,11 @@ export const generateQuestionPaper = async (
     }));
 
     const response = await ai.models.generateContent({
-      model: 'gemini-3-pro-preview',
+      model: 'gemini-3.1-pro-preview',
       contents: [{
         parts: [...mediaParts, { text: prompt }]
       }],
       config: {
-        thinkingConfig: { thinkingBudget: 16000 },
         responseMimeType: "application/json",
         responseSchema: {
           type: Type.OBJECT,
